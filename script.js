@@ -1,4 +1,5 @@
 // Hey there. This is a bit of javascript that loads my resume information from a json file, and inserts it into my website
+// 
 // While there are more complicated and perhaps more elegant ways of filling in an html template with json,
 // I figured that this would be a nice, simple, easy to read format. 
 
