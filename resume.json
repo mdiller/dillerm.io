@@ -72,6 +72,11 @@
 			"github": "https://github.com/mdiller/dotabase",
 			"link": "https://dotabase.dillerm.io",
 			"description": "After developing Dotabase, I decided to create a website which would be able to showcase what you can do with all that information. The result is a website that showcases some of the features of Dotabase, and was my first endeavor into the world of the web."
+		},
+		{
+			"title": "OpenDota",
+			"github": "https://github.com/odota/ui",
+			"description": "OpenDota is an open source organization which I have contributed to on several occasions. It's main goal is to provide open source information about the game Dota 2. One of the ways I have contributed is by adding features to the part of the site that shows information about particular matches of Dota 2 games. My most notable contribution is probably the addition of a 'Story' tab, which creates a story of the events that occured during that match. Because the site is built to support multiple languages, the story is built using templates which can be defined per-language, allowing for grammatically correct stories in other languages."
 		}
 	]
 }
