@@ -128,3 +128,24 @@ h3 > a {
 h2 {
 	margin: 0;
 }
+
+@media only screen and (max-width: 768px) {
+	#main-content > section {
+		padding: 25px 10px;
+	}
+
+	section > section {
+		margin-left: 5px;
+	}
+
+	#header {
+		text-align: left;
+		padding-left: 20px;
+	}
+
+	section ul, 
+	section p,
+	section table {
+		margin-left: 5px;
+	}
+}
