@@ -44,8 +44,8 @@ section > section {
 	margin: auto;
 }
 
-#main-content > section {
-	margin-top: 20px;
+.card-holder > section {
+	margin: 10px 0;
 	padding: 25px;
 	background-color: var(--section-background-color);
 	color: var(--section-color);
@@ -61,14 +61,6 @@ section > section {
 	position: relative;
 	font-size: 14px;
 	padding: 5px;
-}
-
-#about-me h2 {
-	margin-bottom: 10px;
-}
-
-#icon-links table {
-	margin-top: 15px;
 }
 
 #icon-links td {
@@ -87,7 +79,6 @@ section > section {
 	height: 24px;
 	width: 24px;
 	margin-right: 8px;
-	margin-left: 15px;
 	margin-bottom: 5px;
 }
 
@@ -104,15 +95,15 @@ a {
 	color: var(--link-color);
 }
 
-section ul, 
+section ul,
 section p,
 section table {
 	margin: 0;
-	margin-left: 15px;
+	margin-left: 20px;
 }
 
-ul {
-	padding-left: 25px;
+section ul {
+	padding-left: 20px;
 }
 
 h2, h3, h4 {
@@ -125,13 +116,19 @@ h3 > a {
 	color: var(--section-title-color);
 }
 
-h2 {
+section > h3, 
+section > h2 {
 	margin: 0;
+	margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {
 	#main-content > section {
 		padding: 25px 10px;
+	}
+
+	#main-content > h2 {
+		margin-left: 10px;
 	}
 
 	section > section {
@@ -146,6 +143,10 @@ h2 {
 	section ul, 
 	section p,
 	section table {
-		margin-left: 5px;
+		margin-left: 15px;
+	}
+
+	section ul {
+		padding-left: 10px;
 	}
 }

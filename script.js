@@ -69,13 +69,13 @@ function iconLinkToHTML(icon_link) {
 // Just inserting these as strings because it isn't worth loading js-dom
 function addExperience(jobs, config) {
 	jobs.forEach(job => {
-		$("section#experience").append(jobToHTML(job))
+		$("#experience").append(jobToHTML(job))
 	});
 }
 
 function addProjects(projects, config) {
 	projects.forEach(project => {
-		$("section#projects").append(projectToHTML(project));
+		$("#projects").append(projectToHTML(project));
 	});
 }
 
