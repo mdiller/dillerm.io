@@ -28,10 +28,10 @@ function jobToHTML(job) {
 		<section>
 			<h3>
 				${job.company}
-				<span class="location-date">
-					${job.location} (${job.date_start} - ${job.date_end})
-				</span>
 			</h3>
+			<div class="location-date">
+				${job.location} (${job.date_start} - ${job.date_end})
+			</div>
 			${jsonToUl(job.bullets)}
 		</section>`;
 }
