@@ -67,23 +67,27 @@ section > section {
 	font-size: 14px;
 }
 
-#icon-links td {
+.icon-table td {
 	vertical-align: top;
 	color: #AAAAAA;
 }
 
-#icon-links a {
+.icon-table a {
 	color: var(--secondary-color);
 	vertical-align: middle;
 	line-height: 24px;
 }
 
-#icon-links img {
+.icon {
 	vertical-align: top;
 	height: 24px;
 	width: 24px;
 	margin-right: 8px;
 	margin-bottom: 5px;
+}
+
+#resume table.icon-table {
+	margin-top: 15px;
 }
 
 a {
@@ -124,10 +128,6 @@ section > h2 {
 
 	#main-content > h2 {
 		margin-left: 10px;
-	}
-
-	section > section {
-		margin-left: 5px;
 	}
 
 	#header {
