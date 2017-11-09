@@ -23,6 +23,20 @@ function jsonToUl(data) {
 	return `<ul>\n${lines.join("\n")}\n</ul>`;
 }
 
+
+function expand_readmore(element) {
+	element.parentNode.className += " expanded";
+}
+
+function readMoreSection(data) {
+	return !data.description ? "" : `
+		<section class="read-more">
+			<span onclick="expand_readmore(this)">Read More &#9658</span>
+			<p>${data.description}</p>
+		</section>
+	`;
+}
+
 function jobToHTML(job) {
 	return `
 		<section>
@@ -33,6 +47,7 @@ function jobToHTML(job) {
 				${job.location} (${job.date_start} - ${job.date_end})
 			</div>
 			${jsonToUl(job.bullets)}
+			${readMoreSection(job)}
 		</section>`;
 }
 
@@ -49,6 +64,7 @@ function projectToHTML(project) {
 				</span>
 			</h3>
 			${jsonToUl(project.bullets)}
+			${readMoreSection(project)}
 		</section>`;
 }
 
