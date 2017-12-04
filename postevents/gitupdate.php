@@ -14,14 +14,8 @@ if (!empty($_REQUEST['payload'])) {
 		echo "invalid repository: " . $repo;
 		die(1);
 	}
-
-	$cmd = "cd " . $path . "; git pull;";
-
-	if (isset($build_cmd)) {
-		$cmd = $cmd . " " . $build_cmd . ";";
-	}
 	
-	$output = shell_exec($cmd);
+	$output = shell_exec("cd " . $path . "; git pull;");
 	
 	if(is_null($output)) {
 		echo "error executing pull";
@@ -32,6 +26,11 @@ if (!empty($_REQUEST['payload'])) {
 		date_default_timezone_set("America/Los_Angeles");
 		echo $output;
 		echo "updated " . $repo . " at " . date("F jS Y h:i A");
+
+		if (isset($build_cmd)) {
+			exec("cd " . $path . "; " . $build_cmd . " > /dev/null &");
+		}
+
 		die(0);
 	}
 }
