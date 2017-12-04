@@ -8,7 +8,7 @@
 	--section-color: #EEEEEE	;
 	--section-title-color: #2e9cd9;
 	--header-height: 200px;
-	--content-width: 900px;
+	--content-width: 950px;
 }
 
 html, body {
@@ -50,6 +50,24 @@ section > section {
 	padding: 25px;
 	background-color: var(--section-background-color);
 	color: var(--section-color);
+}
+
+.double-card {
+	display: flex;
+	flex-direction: row;
+}
+
+.double-card > section {
+	margin: 10px;
+	flex: 1;
+}
+
+.double-card > section:first-child {
+	margin-left: 0;
+}
+
+.double-card > section:last-child	 {
+	margin-right: 0;
 }
 
 .location-date {
@@ -153,6 +171,14 @@ section > h2 {
 @media only screen and (max-width: 768px) {
 	.card-holder > section {
 		padding: 25px 10px;
+	}
+
+	.double-card {
+		flex-direction: column;
+	}
+
+	.double-card > section {
+		margin: 10px 0;
 	}
 
 	#main-content > h2 {
