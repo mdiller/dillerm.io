@@ -4,6 +4,8 @@
 // I figured that this would be a nice, simple, easy to read format. 
 
 
+
+
 function textToHTML(text) {
 	text = text.replace(/\n/g, "<br>");
 	return text;
@@ -129,7 +131,7 @@ function addAboutMe(about_me) {
 
 
 function processResume(resume_json) {
-	addExperience(resume_json.experience);
+	// addExperience(resume_json.experience);
 	addProjects(resume_json.projects);
 	addIconLinks(resume_json.icon_links);
 	addLanguages(resume_json.languages);
@@ -137,8 +139,36 @@ function processResume(resume_json) {
 	addAboutMe(resume_json.about_me);
 }
 
-$.ajax({
-	dataType: "json",
-	url: "./resume/resume.json",
-	success: processResume
-});
+
+const app = new Vue({
+	el: '#main-container',
+	data: {
+		resume: {}
+	},
+	methods: {
+		jsonToUl(data) {
+			var lines = []
+			for(var i = 0; i < data.length; i++) {
+				if ((i + 1) < data.length && typeof data[i + 1] !== "string"){
+					lines.push(`<li>${data[i]}\n${this.jsonToUl(data[i + 1])}</li>`);
+					i += 1;
+				}
+				else {
+					lines.push(`<li>${data[i]}</li>`);
+				}
+			}
+			return `<ul>\n${lines.join("\n")}\n</ul>`;
+		}
+	},
+	created() {
+		axios.get(`./resume/resume.json`)
+			.then(response => {
+				this.resume = response.data;
+				processResume(this.resume);
+			})
+			.catch(error => {
+				console.log("error occured while retrieving resume data");
+				console.log(error);
+			});
+	}
+})

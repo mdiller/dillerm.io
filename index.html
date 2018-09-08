@@ -66,15 +66,30 @@
 				</div>
 
 				<h2>Work Experience</h2>
-				<div id="experience" class="card-holder">
+				<div id="experience" class="card-holder" v-if="resume.experience">
+					<section v-for="job in resume.experience">
+						<h3>
+							{{job.company}}
+						</h3>
+						<div class="location-date">
+							{{`${job.location} (${job.date_start} - ${job.date_end})`}}
+						</div>
+						<div v-html="jsonToUl(job.bullets)">
+						</div>
+						<section v-if="job.description" class="read-more">
+							<span onclick="expand_readmore(this)">Read More &#9658</span>
+							<p>{{job.description}}</p>
+						</section>
+					</section>
 				</div>
 
 			</div>
 		</div>
 	</body>
 
-	<!-- JQuery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<!-- Load Resume -->
+
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 	<script src="script.js"> </script>
 </html>
