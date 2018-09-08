@@ -7,14 +7,15 @@
 	--section-background-color: #282a2e;
 	--section-color: #EEEEEE	;
 	--section-title-color: #2e9cd9;
-	--header-height: 200px;
+	--header-height: 150px;
 	--content-width: 950px;
 }
 
 html, body {
 	margin: 0;
 	height: 100%;
-	background-color: var(--background-color);
+	background-image: url(images/background.png);
+	background-color: var(--dark-background-color);
 	color: var(--text-color);
 	font-family: "Roboto", sans-serif;
 }
@@ -25,13 +26,13 @@ html, body {
 	align-items: center;
 	height: var(--header-height);
 	text-align: center;
-	background-color: var(--header-color);
-	color: var(--background-color);
+	color: var(--section-title-color);
 }
 
 h1 {
 	font-size: 400%;
 	margin: 0;
+	text-decoration: underline;
 }
 
 section > section {
