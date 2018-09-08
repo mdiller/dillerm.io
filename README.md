@@ -2,4 +2,6 @@
 
 A simple website built to showcase my projects
 
-This website is largely built using the data from my [resume](https://github.com/mdiller/resume) project.
+This website is largely built using the data from my [resume](https://github.com/mdiller/resume) project
+
+Constructed via Vue.js

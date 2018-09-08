@@ -143,7 +143,7 @@ a {
 	color: var(--secondary-color);
 }
 
-section > ul,
+section > div > ul,
 section > p,
 section > table {
 	margin: 0;
@@ -192,7 +192,7 @@ section > h2 {
 		padding-left: 20px;
 	}
 
-	section > ul, 
+	section > div > ul, 
 	section > p,
 	section > table {
 		margin-left: 15px;

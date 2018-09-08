@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 
@@ -27,12 +29,27 @@
 
 				<section id="about-me">
 					<h2>About Me</h2>
+					<p v-if="resume.about_me">
+						{{resume.about_me}}
+					</p>
 				</section>
 				
 				<div class="double-card card-holder">
 					<section id="icon-links">
 						<h2>Contact Info</h2>
-						<table class="icon-table"></table>
+						<table class="icon-table" v-if="resume.icon_links">
+							<tr v-for="icon_link in included_icon_links">
+								<td>
+									<img class="icon" :src="`resume/images/${icon_link.icon}`">
+								</td>
+								<td>
+									<a v-if="icon_link.link" :href="icon_link.link">
+										{{icon_link.text}}
+									</a>
+									<span v-if="!icon_link.link" v-html="textToHTML(icon_link.text)"></span>
+								</td>
+							</tr>
+						</table>
 					</section>
 
 					<section id="resume">
@@ -57,12 +74,28 @@
 					</section>
 				</div>
 
-<!-- 			<section id="languages">
-					<h2>Languages</h2>
-				</section> -->
-
 				<h2>Personal Projects</h2>
-				<div id="projects" class="card-holder">
+				<div id="projects" class="card-holder" v-if="resume.projects">
+					<section v-for="project in resume.projects">
+						<h3>
+							<a v-if="project.link" :href="project.link">
+								{{project.title}}
+							</a>
+							<span v-if="!project.link">
+								{{project.title}}
+							</span>
+							<span class="github-link">
+								<a :href="project.github">
+									View Source
+								</a>
+							</span>
+						</h3>
+						<div v-html="jsonToUl(project.bullets)"></div>
+						<section v-if="project.description" class="read-more">
+							<span onclick="expand_readmore(this)">Read More &#9658</span>
+							<p>{{project.description}}</p>
+						</section>
+					</section>
 				</div>
 
 				<h2>Work Experience</h2>
@@ -74,8 +107,7 @@
 						<div class="location-date">
 							{{`${job.location} (${job.date_start} - ${job.date_end})`}}
 						</div>
-						<div v-html="jsonToUl(job.bullets)">
-						</div>
+						<div v-html="jsonToUl(job.bullets)"></div>
 						<section v-if="job.description" class="read-more">
 							<span onclick="expand_readmore(this)">Read More &#9658</span>
 							<p>{{job.description}}</p>
@@ -86,8 +118,6 @@
 			</div>
 		</div>
 	</body>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 	<script src="https://unpkg.com/vue"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
