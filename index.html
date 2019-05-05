@@ -92,7 +92,7 @@
 						</h3>
 						<div v-html="jsonToUl(project.bullets)"></div>
 						<section v-if="project.description" class="read-more">
-							<span onclick="expand_readmore(this)">Read More &#9658</span>
+							<span @click="expand_readmore($event)">Read More &#9658</span>
 							<p>{{project.description}}</p>
 						</section>
 					</section>
@@ -109,7 +109,7 @@
 						</div>
 						<div v-html="jsonToUl(job.bullets)"></div>
 						<section v-if="job.description" class="read-more">
-							<span onclick="expand_readmore(this)">Read More &#9658</span>
+							<span @click="expand_readmore($event)">Read More &#9658</span>
 							<p>{{job.description}}</p>
 						</section>
 					</section>

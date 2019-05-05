@@ -26,9 +26,10 @@ const app = new Vue({
 			text = text.replace(/\n/g, "<br>");
 			return text;
 		},
-		expand_readmore(element) {
+		expand_readmore(event) {
 			// This could be done using vue.js but that would require each project and job to have reactive elements
-			element.parentNode.className += " expanded";
+			// console.log(element);
+			event.target.parentNode.className += " expanded";
 		}
 	},
 	created() {
