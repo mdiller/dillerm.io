@@ -33,7 +33,7 @@ const app = new Vue({
 		}
 	},
 	created() {
-		axios.get(`./resume/resume.json`)
+		axios.get(`./data/resume/resume.json`)
 			.then(response => {
 				this.resume = response.data;
 			})
