@@ -5,7 +5,7 @@ const app = new Vue({
 	},
 	computed: {
 		included_icon_links() {
-			return (this.resume.icon_links || []).filter(l => ['github', 'email', 'linkedin'].includes(l.name));
+			return (this.resume.icon_links || []).filter(l => ['github', 'email', 'linkedin', 'sourcerer'].includes(l.name));
 		}
 	},
 	methods: {
