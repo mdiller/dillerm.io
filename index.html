@@ -40,7 +40,7 @@
 						<table class="icon-table" v-if="resume.icon_links">
 							<tr v-for="icon_link in included_icon_links">
 								<td>
-									<img class="icon" :src="`resume/images/${icon_link.icon}`">
+									<img class="icon" :src="`data/resume/images/${icon_link.icon}`">
 								</td>
 								<td>
 									<a v-if="icon_link.link" :href="icon_link.link">
